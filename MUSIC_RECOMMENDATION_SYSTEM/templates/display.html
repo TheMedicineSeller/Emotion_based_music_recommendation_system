@@ -1,0 +1,89 @@
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <title>Recommended Song</title>
+    <style>
+        body {
+            font-family: 'Calligraffitti';
+            font-size: 22px;
+            background-color: #f5f5f5;
+            background-image: url("{{ url_for('static', filename='displayimg.jpg') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 600px;
+            margin: 320px auto;
+            background-color: rgba(210, 104, 86, 0);
+            padding: 40px;
+            border-radius: 10px;
+            margin-left: 500px; /*to move the container to the left */
+            position: relative;
+        }
+
+        h1 {
+            color: rgba(236, 100, 75, 0.8);
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(236, 100, 75, 1);
+            animation: flicker 1s linear infinite;
+        }
+
+        h3 {
+            color: rgba(236, 100, 75, 0.5);
+            font-size: 30px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(236, 100, 75, 0.8);
+            animation: flicker 1s linear infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .wireframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid rgba(236, 100, 75, 0.8);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .glow-behind {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: radial-gradient(rgba(236, 100, 75, 0.2), rgba(236, 100, 75, 0));
+            border-radius: 10px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Song</h1>
+        <h3>Song Name: {{ song_name }}</h3>
+        <h3>Song Album: {{ song_album }}</h3>
+        <h3>Song Artist: {{ song_artist }}</h3>
+        <h3>Song Spotify link: <a href="https://open.spotify.com/track/{{ song_id }}">Listen on Spotify</a></h3>
+    </div>
+</body>
+</html>
+
